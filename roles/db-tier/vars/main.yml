@@ -1,2 +1,10 @@
 ---
-# vars file for db-tier
+# vars file for roles/lb-tier
+postgresql_pkg:
+ - postgresql
+ - postgresql-server
+
+postgresql_srv:
+ - postgresql 
+
+postgresql_data_dir: "/var/lib/pgsql/data"

@@ -1,2 +1,9 @@
 ---
-# vars file for lb-tier
+# vars file for roles/lb-tier
+haproxy_pkg:
+ - haproxy
+
+haproxy_srv:
+ - haproxy 
+
+GUID: "{{ lookup('env', 'GUID') }}"

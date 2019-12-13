@@ -1,2 +1,23 @@
 ---
-# tasks file for lb-tier
+# tasks file for roles/lb-tier
+#
+- name: Install HAProxy
+  yum:
+    name: [ '{{ item }}' ] 
+    state: latest
+  with_items:
+    - "{{ haproxy_pkg }}"
+
+- name: Enable HAProxy
+  service:
+    name: "{{ item }}"
+    state: started
+  with_items:
+    - "{{ haproxy_srv }}"
+
+- name: Configure HAProxy
+  template:
+    src: ./templates/haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+  notify:
+   - restart_haproxy

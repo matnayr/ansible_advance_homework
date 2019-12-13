@@ -1,2 +1,8 @@
 ---
-# vars file for app-tier
+# vars file for roles/lb-tier
+tomcat_pkg:
+ - tomcat
+
+tomcat_srv:
+ - tomcat 
+
